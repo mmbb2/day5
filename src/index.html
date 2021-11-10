@@ -16,47 +16,10 @@
 <body>
     <div id="app">
 
-        <table>
-            <input type="text" v-model="query">
-            <tr>
-                <th>ПІБ</th>
-                <th>Група</th>
-                <th>Оцінка</th>
-                <th>Здав/не здав</th>
-            </tr>
-            <tr v-for="student in students" :class="(student.name.split(' ')[0].includes(query) && query) ? 'red' : null">
-                
-                    <td>
-                        {{student.name}}
-                    </td>
-                    <td>
-                        {{student.group}}
-                    </td>
-                    <td>
-                        {{student.mark}}
-                    </td>
-                    <td>
-                        <input type="checkbox" id="checkbox" :checked="student.isDonePr" />
-                    </td>
-                    <td>
-                        <a @click="deleteStudent(student._id)">Видалити</a>
-                    </td>
-            </tr>
-        </table>
-
-        <input placeholder="ПІБ" type="text" v-model.trim="studentForm.name">
-        <select v-model="studentForm.group">
-            <option disabled value="">Група</option>
-            <option>RPZ 18 1/9</option>
-            <option>RPZ 18 2/9</option>
-        </select>
-        <input placeholder="Оцінка" type="number" step="1" min="1" v-model.number="studentForm.mark">
-        <input type="checkbox" id="passed" value="false" v-model="studentForm.isDonePr">
-        <label for="passed">Здав ПР</label>
-        <button @click="addStudent">ок</button> 
+        
 
 
-        <p>Currency convertor</p>
+        <!-- <p>Currency convertor</p>
         <label for="amount">Enter Amount</label>
         <input id="amount" type="text" v-model="inputValue">
         
@@ -78,8 +41,9 @@
         </select>
 
         
-        <p>{{ inputValue && from && to ? `${inputValue} ${from.cc} equals ${outputValue.toFixed(2)} ${to.cc}` : ''}}</p>
+        <p>{{ inputValue && from && to ? `${inputValue} ${from.cc} equals ${outputValue.toFixed(2)} ${to.cc}` : ''}}</p> -->
     </div>
+
     <script src="./main.js"></script>
 </body>
 
