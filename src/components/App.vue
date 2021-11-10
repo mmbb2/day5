@@ -63,10 +63,6 @@ export default {
                         mark: null,
                         isDonePr: false,
                     },
-                    inputValue: null,
-                    from: null,
-                    to: null,
-                    rates: [],
                     isButtonVisible: false
                 }
             },
@@ -75,16 +71,7 @@ export default {
                 this.students = [...response.data];
             })
 
-            // axios.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").then(response => {
-                
-            //     this.rates = [...response.data];
-            //     this.rates.push({
-            //         txt: "Українська гривня",
-            //         rate: 1,
-            //         cc: "UAH"
-            //     })
-            //     console.log(this.rates)
-            // })
+            
         },
         methods: {
             deleteStudent: function(id){
@@ -116,11 +103,7 @@ export default {
                 .then(()=>{this.students = this.students.map(student=>student._id === id ? updatedStudent : student)})
             }
         },
-        computed: {
-            outputValue: function(){
-                return this.inputValue * this.from.rate / this.to.rate
-            }
-        }
+      
 }
 </script>
 
