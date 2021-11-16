@@ -6,7 +6,7 @@ import VueRouter from  'vue-router'
 import Students from './components/Students.vue'
 import StudentInfo from './components/StudentInfo.vue'
 import App from './components/App.vue'
-
+import store from './store'
 const routes = [
    {path: '/', component: Students},
    {path: '/student-info/:id', component: StudentInfo, props: true},
@@ -21,5 +21,6 @@ Vue.use(VueRouter , VueAxios, axios)
 new Vue({
    render: h => h(App),
    el: '#app',
-   router
+   router,
+   store
 })

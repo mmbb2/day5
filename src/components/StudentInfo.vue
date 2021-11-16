@@ -1,6 +1,7 @@
 <template>
     <div>
         <ModalImage v-if="isModalOpen" :img="student.photo" :closeModal="closeModal"></ModalImage>
+        Кількість студентів: {{studentsCount}}
         <div class="student-card">
             <img :src="student.photo" alt="" @click="isModalOpen = true">
             <div>
@@ -47,12 +48,17 @@ export default {
         closeModal: function(){
             this.isModalOpen = false
         }
-    }
+    },
+    computed:{
+            studentsCount () {
+                return this.$store.getters.getCount
+            }
+        }
 }
 </script>
 <style scoped>
 .student-card{
-    width: 250px;
+    width: fit-content;
     height: 400px;
     margin: auto;
     border: 1px solid lightblue ;
