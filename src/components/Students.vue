@@ -30,7 +30,7 @@
                         <input type="checkbox" id="checkbox" :checked="student.isDonePr" />
                     </td>
                     <td>
-                        <a @click="deleteStudent(student._id)">Видалити</a>
+                        <a @click.prevent="deleteStudent(student._id)" v-show="student.group==getCurrentUser.group">Видалити</a>
                     </td>
                     <td>
                         <button @click="initUpdateForm(student._id)"><img class="pencil-img" src="/static/img/pencil.png" alt="Редагувати"></button>
@@ -120,6 +120,9 @@ export default {
             theme () {
                 return this.$store.getters.getTheme
             },
+            getCurrentUser(){
+                return this.$store.getters.getUser
+            }
         }
       
 }
