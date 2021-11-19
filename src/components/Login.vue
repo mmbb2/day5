@@ -19,10 +19,12 @@ export default {
     },
     methods:{
         auth() {
-            Vue.axios.get(`http://46.101.212.195:3000/students/name/${this.login}`).then(response=>{
+            Vue.axios.get(`http://localhost:3000/name/${this.login}`).then(response=>{
+                console.log(response.data)
                 if(response.data === null || response.data.name === 'CastError'){
                     return
                 }
+
                 this.$store.commit('setUser', response.data)
                 this.$router.push('/')
             })

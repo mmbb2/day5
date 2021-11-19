@@ -73,7 +73,7 @@ export default {
                 }
             },
         mounted: function(){
-            axios.get("http://46.101.212.195:3000/students").then(response => {
+            axios.get("http://localhost:3000/").then(response => {
                 this.students = [...response.data];
                 this.$store.commit('setCount', this.students.length)
             })
@@ -81,7 +81,7 @@ export default {
         },
         methods: {
             deleteStudent: function(id){
-                Vue.axios.delete(`http://46.101.212.195:3000/students/${id}`)
+                Vue.axios.delete(`http://localhost:3000/${id}`)
                 .then(()=>{this.students = this.students.filter(student=>student._id !== id)
                 this.$store.commit('setCount', this.students.length)})
             },
@@ -95,7 +95,7 @@ export default {
             },
             addStudent: function(){
                 if(Object.values(this.studentForm).every(value => value === false ? true : value)){
-                    Vue.axios.post("http://46.101.212.195:3000/students", this.studentForm)
+                    Vue.axios.post("http://localhost:3000/", this.studentForm)
                     .then(response=> {this.students.push(response.data)
                     this.$store.commit('setCount', this.students.length)})
                 } else{
@@ -106,7 +106,7 @@ export default {
             updateStudent: function(id){
                 this.isButtonVisible = false;
                 const updatedStudent = {...this.studentForm}
-                Vue.axios.put(`http://46.101.212.195:3000/students/${id}`, updatedStudent)
+                Vue.axios.put(`http://localhost:3000/${id}`, updatedStudent)
                 .then(()=>{this.students = this.students.map(student=>student._id === id ? updatedStudent : student)})
             },
             setTheme: function(theme){

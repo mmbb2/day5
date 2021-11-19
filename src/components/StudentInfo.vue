@@ -39,7 +39,7 @@ export default {
         ModalImage
     },
     mounted: function(){
-        Vue.axios.get(`http://46.101.212.195:3000/students/${this.id}`).then(response=>{
+        Vue.axios.get(`http://localhost:3000/${this.id}`).then(response=>{
             console.log(response.data)
             this.student = response.data
         })
